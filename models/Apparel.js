@@ -3,10 +3,10 @@ const mongoose = require("mongoose")
 
 //create Schema
 const apparelSchema = new mongoose.Schema( {
-    title: { required: true, unique: true, String },
-    brand: String,
     type: String,
+    brand: String,
     size: String,
+    nickname: String,
 })
 
 // creat the model User
