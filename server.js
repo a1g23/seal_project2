@@ -19,6 +19,9 @@ const SECRET = process.env.SECRET
 const app = express()
 
 
+
+// ALL MY ROUTES //
+
 // simple get route to test
 app.get ("/", (req, res) => {
     res.send("server looks goodie")
@@ -77,7 +80,21 @@ app.get("/mycloset/seed", async (req, res) => {
 })
 
 
+// Index Route
 
+app.get("/mycloset", async (req, res) => {
+    try {
+        // get the apparel from the db
+        const apparel = await Apparel.find({})
+
+        // render to index.ejs and send the apparel
+        res.render("index.ejs", {apparel})
+
+    } catch (error) {
+        res.send("There was an Error")
+        console.log(error.message)
+    }
+})
 
 
 // app listener
