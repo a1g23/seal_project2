@@ -7,6 +7,7 @@ const morgan = require("morgan")
 const methodOverride = require("method-override")
 const mongoose = require("mongoose")
 const mongoConnection = require("./controllers/db")
+const Apparel = require("./models/Apparel")
 
 // get dotenv variable
 
@@ -21,6 +22,58 @@ const app = express()
 // simple get route to test
 app.get ("/", (req, res) => {
     res.send("server looks goodie")
+})
+
+// seed route
+app.get("/mycloset/seed", async (req, res) => {
+    try {
+        // array of starter apparel
+        const starterApparel = [
+            {
+              type: "T-shirt",
+              brand: "Adidas",
+              size: "M",
+              nickname: "The Comfy One"
+            },
+            {
+              type: "Jeans",
+              brand: "Levi's",
+              size: "W32 L32",
+              nickname: "The Classics"
+            },
+            {
+              type: "Hoodie",
+              brand: "Nike",
+              size: "L",
+              nickname: "Cozy Nights"
+            },
+            {
+              type: "Chinos",
+              brand: "Banana Republic",
+              size: "32",
+              nickname: "Weekend Warriors"
+            },
+            {
+              type: "Dress Shirt",
+              brand: "Calvin Klein",
+              size: "16",
+              nickname: "Sharp Shooter"
+            }
+          ]
+        // delete all Apparel
+        await Apparel.deleteMany({})
+
+        // add the starter apparel
+        const seedApparel = await Apparel.create(starterApparel)
+
+        //respose
+        res.json(seedApparel)
+
+
+    } catch (error) {
+        res.send("There was an Error")
+        console.log(error.message)
+    }
 })
 
 

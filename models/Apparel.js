@@ -1,6 +1,11 @@
 //import connection
 const mongoose = require("mongoose")
 
+
+// 
+const Schema = mongoose.Schema
+const model = mongoose.model
+
 //create Schema
 const apparelSchema = new mongoose.Schema( {
     type: String,
