@@ -18,7 +18,11 @@ const SECRET = process.env.SECRET
 
 const app = express()
 
-
+// register middleware
+app.use(morgan("dev")) // the string dev is the type of logs that morgan will send (in documentation)
+app.use(methodOverride("_method")) // allow for put and delete requests
+app.use(express.urlencoded({extended: true})) // parse url encoded bodys (forms that we can look reqs)
+app.use(express.static("public"))
 
 // ALL MY ROUTES //
 
@@ -94,6 +98,25 @@ app.get("/mycloset", async (req, res) => {
         res.send("There was an Error")
         console.log(error.message)
     }
+})
+
+// Show Route
+
+app.get("/mycloset/:id", async (req, res) => {
+    try {
+        // get the id from the params
+        const id = req.params.id
+
+        // find the apparel from the db
+        const indyApparel = await Apparel.findById(id)
+
+        // render to show.ejs and send the indyApparel
+        res.render("show.ejs", {indyApparel})
+
+    } catch (error) {
+    res.send("There was an Error")
+    console.log(error.message)
+}
 })
 
 
