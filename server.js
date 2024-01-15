@@ -142,7 +142,25 @@ app.get("/mycloset/:id/edit", async (req, res) => {
     }
 })
 
+// Update Route
 
+app.put("/mycloset/:id", async (req, res) => {
+  try {
+    // grab the ID of the apparel
+    const id = req.params.id
+    // find the new body
+    const updatedApparel = req.body
+    // update the apparel in the db
+    await Apparel.findByIdAndUpdate(id, updatedApparel)
+    // redirect to the show route of the updated apparel
+    res.redirect(`/mycloset/${id}`)
+
+
+  } catch (error) {
+    res.send("There was an Error")
+    console.log(error.message)
+  }
+})
 
 // Show Route
 
