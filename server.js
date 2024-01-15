@@ -25,13 +25,6 @@ app.use(methodOverride("_method")) // allow for put and delete requests
 app.use(express.urlencoded({extended: true})) // parse url encoded bodys (forms that we can look reqs)
 app.use(express.static("public"))
 
-// ALL MY ROUTES //
-
-// simple get route to test
-app.get ("/", (req, res) => {
-    res.send("server looks goodie")
-})
-
 // register my routes
 
 app.use("/mycloset", apparelController)
