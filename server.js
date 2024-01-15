@@ -107,6 +107,23 @@ app.get("/mycloset/new", (req, res) => {
   res.render("new.ejs")
 })
 
+// Create Route
+
+app.post("/mycloset", async (req, res) => {
+    try {
+        // grab the body from the form
+        const newApparel = req.body
+        // create the newApparel in db
+        await Apparel.create(newApparel)
+        // redirect to the index.ejs
+        res.redirect("/mycloset")
+      
+    } catch (error) {
+      res.send("There was an Error")
+      console.log(error.message)
+    }
+})
+
 // Show Route
 
 app.get("/mycloset/:id", async (req, res) => {
