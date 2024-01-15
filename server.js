@@ -100,6 +100,13 @@ app.get("/mycloset", async (req, res) => {
     }
 })
 
+// New Route
+
+app.get("/mycloset/new", (req, res) => {
+  // render the new.ejs form (no db request)
+  res.render("new.ejs")
+})
+
 // Show Route
 
 app.get("/mycloset/:id", async (req, res) => {
