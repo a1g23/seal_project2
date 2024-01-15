@@ -8,6 +8,10 @@
 <body>
     <main>
         <div>
+            <h1>My Virtual Closet</h1>
+            <%- include("../partials/loginnav.ejs") %>
+        </div>
+        <div>
             <form action="/mycloset/<%= indyApparel._id %>?_method=PUT" method="POST">
                 <fieldset>
                     <legend>Edit your Apparel</legend>

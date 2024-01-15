@@ -6,7 +6,11 @@
     <title>My Virtual Closet</title>
 </head>
 <body>
+    <div>
     <h1>My Virtual Closet</h1>
+    <%- include("../partials/loginnav.ejs") %>
+    <a href="/user/signup"><button>Create New Account</button></a><br>
+    </div>
     <% for (let i = 0; i < apparel.length; i++) { %>
         <a href="./mycloset/<%=apparel[i]._id%>">
             <h1><%= apparel[i].nickname %></h1>
