@@ -1,5 +1,5 @@
 //import connection
-const mongoose = require("mongoose")
+const mongoose = require("../controllers/db")
 
 
 // 
