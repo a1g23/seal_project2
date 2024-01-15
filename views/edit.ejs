@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Virtual Closet</title>
+</head>
+<body>
+    <main>
+        <div>
+            <form action="/mycloset/<%= indyApparel._id %>?_method=PUT" method="POST">
+                <fieldset>
+                    <legend>Edit your Apparel</legend>
+                    <label>
+                        Nickname: <input type="text" name="nickname" value="<%= indyApparel.nickname %>">
+                    </label>
+                    <label>
+                        Type: <input type="text" name="type" value="<%= indyApparel.type %>">
+                    </label>
+                    <label>
+                        Brand: <input type="text" name="brand" value="<%= indyApparel.brand %>">
+                    </label>
+                    <label>
+                        Size: <input type="text" name="size" value="<%= indyApparel.size %>">
+                    </label>
+                </fieldset>
+                <button>Edit my closet</button> 
+            </form>
+        </div>
+    </main>
+</body>
+</html>

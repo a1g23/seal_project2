@@ -124,6 +124,26 @@ app.post("/mycloset", async (req, res) => {
     }
 })
 
+// Edit Route
+
+app.get("/mycloset/:id/edit", async (req, res) => {
+    try {
+      // grab the ID of the apparel
+      const id = req.params.id
+      // find the item in the db
+      const indyApparel = await Apparel.findById(id)
+      // render the edit.ejs form and send over the indyApparel to use
+      res.render("edit.ejs", {indyApparel})
+
+
+    } catch (error) {
+      res.send("There was an Error")
+      console.log(error.message)
+    }
+})
+
+
+
 // Show Route
 
 app.get("/mycloset/:id", async (req, res) => {
