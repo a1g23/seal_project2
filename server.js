@@ -9,6 +9,7 @@ const mongoose = require("mongoose")
 const mongoConnection = require("./controllers/db")
 const Apparel = require("./models/Apparel")
 const apparelController = require("./controllers/apparel")
+const userController = require("./controllers/user")
 
 // get dotenv variable
 
@@ -28,6 +29,7 @@ app.use(express.static("public"))
 // register my routes
 
 app.use("/mycloset", apparelController)
+app.use("/user", userController)
 
 // app listener
 const PORT = process.env.PORT

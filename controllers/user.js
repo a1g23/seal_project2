@@ -13,5 +13,13 @@ const router = express.Router()
 
 router.get("/signup", (req, res) => {
     // render the sign up page
-    res.render("/user/signup.ejs")
+    res.render("user/signup.ejs")
 })
+
+
+
+
+
+// export the user router
+
+module.exports = router
