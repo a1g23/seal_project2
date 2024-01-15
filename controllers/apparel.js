@@ -83,11 +83,8 @@ router.get("/", async (req, res) => {
         // get the apparel from the db
         const apparel = await Apparel.find({})
 
-        // get the username so I can post it on the index page
-        const user = await User.findOne({})
-
         // render to index.ejs and send the apparel
-        res.render("apparel/index.ejs", {apparel, user})
+        res.render("apparel/index.ejs", {apparel})
 
     } catch (error) {
         res.send("There was an Error")
@@ -98,12 +95,10 @@ router.get("/", async (req, res) => {
 // New Route
 
 router.get("/new", async (req, res) => {
-  // get the username so I can post it on the index page
-  const user = await User.findOne({})
 
   
   // render the new.ejs form (no db request)
-  res.render("apparel/new.ejs", {user})
+  res.render("apparel/new.ejs")
 })
 
 // Create Route
@@ -131,10 +126,9 @@ router.get("/:id/edit", async (req, res) => {
       const id = req.params.id
       // find the item in the db
       const indyApparel = await Apparel.findById(id)
-      // get the username so I can post it on the index page
-      const user = await User.findOne({})
+      
       // render the edit.ejs form and send over the indyApparel to use
-      res.render("apparel/edit.ejs", {indyApparel, user})
+      res.render("apparel/edit.ejs", {indyApparel})
 
 
     } catch (error) {
@@ -191,11 +185,9 @@ router.get("/:id", async (req, res) => {
         // find the apparel from the db
         const indyApparel = await Apparel.findById(id)
 
-        // get the username so I can post it on the index page
-        const user = await User.findOne({})
 
         // render to show.ejs and send the indyApparel
-        res.render("apparel/show.ejs", {indyApparel, user})
+        res.render("apparel/show.ejs", {indyApparel})
 
     } catch (error) {
     res.send("There was an Error")
