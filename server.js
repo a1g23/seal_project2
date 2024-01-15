@@ -162,6 +162,24 @@ app.put("/mycloset/:id", async (req, res) => {
   }
 })
 
+// Delete Route
+
+app.delete("/mycloset/:id", async (req, res) => {
+  try {
+    // grab the ID of the apparel
+    const id = req.params.id
+    // find the apparel and delete it
+    await Apparel.findByIdAndDelete(id)
+
+    // redirect to my closet
+    res.redirect("/mycloset")
+
+  } catch (error) {
+    res.send("There was an Error")
+    console.log(error.message)
+  }
+})
+
 // Show Route
 
 app.get("/mycloset/:id", async (req, res) => {
