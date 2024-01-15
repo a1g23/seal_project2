@@ -1,6 +1,7 @@
 // import dependencies
 const express = require("express")
 const Apparel = require("../models/Apparel")
+const User = require("../models/User")
 
 // Create the route
 
@@ -82,8 +83,11 @@ router.get("/", async (req, res) => {
         // get the apparel from the db
         const apparel = await Apparel.find({})
 
+        // get the username so I can post it on the index page
+        const user = await User.findOne({})
+
         // render to index.ejs and send the apparel
-        res.render("apparel/index.ejs", {apparel})
+        res.render("apparel/index.ejs", {apparel, user})
 
     } catch (error) {
         res.send("There was an Error")
@@ -93,9 +97,13 @@ router.get("/", async (req, res) => {
 
 // New Route
 
-router.get("/new", (req, res) => {
+router.get("/new", async (req, res) => {
+  // get the username so I can post it on the index page
+  const user = await User.findOne({})
+
+  
   // render the new.ejs form (no db request)
-  res.render("apparel/new.ejs")
+  res.render("apparel/new.ejs", {user})
 })
 
 // Create Route
@@ -123,8 +131,10 @@ router.get("/:id/edit", async (req, res) => {
       const id = req.params.id
       // find the item in the db
       const indyApparel = await Apparel.findById(id)
+      // get the username so I can post it on the index page
+      const user = await User.findOne({})
       // render the edit.ejs form and send over the indyApparel to use
-      res.render("apparel/edit.ejs", {indyApparel})
+      res.render("apparel/edit.ejs", {indyApparel, user})
 
 
     } catch (error) {
@@ -181,8 +191,11 @@ router.get("/:id", async (req, res) => {
         // find the apparel from the db
         const indyApparel = await Apparel.findById(id)
 
+        // get the username so I can post it on the index page
+        const user = await User.findOne({})
+
         // render to show.ejs and send the indyApparel
-        res.render("apparel/show.ejs", {indyApparel})
+        res.render("apparel/show.ejs", {indyApparel, user})
 
     } catch (error) {
     res.send("There was an Error")
