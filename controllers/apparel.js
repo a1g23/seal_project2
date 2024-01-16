@@ -83,8 +83,11 @@ router.get("/", async (req, res) => {
         // get the apparel from the db
         const apparel = await Apparel.find({})
 
+        // grab the session user
+        const user = req.session
+
         // render to index.ejs and send the apparel
-        res.render("apparel/index.ejs", {apparel})
+        res.render("apparel/index.ejs", {apparel, user})
 
     } catch (error) {
         res.send("There was an Error")
@@ -96,9 +99,10 @@ router.get("/", async (req, res) => {
 
 router.get("/new", async (req, res) => {
 
-  
+  // grab the session user
+  const user = req.session
   // render the new.ejs form (no db request)
-  res.render("apparel/new.ejs")
+  res.render("apparel/new.ejs", {user})
 })
 
 // Create Route
@@ -126,9 +130,10 @@ router.get("/:id/edit", async (req, res) => {
       const id = req.params.id
       // find the item in the db
       const indyApparel = await Apparel.findById(id)
-      
+      // grab the session user
+      const user = req.session
       // render the edit.ejs form and send over the indyApparel to use
-      res.render("apparel/edit.ejs", {indyApparel})
+      res.render("apparel/edit.ejs", {indyApparel, user})
 
 
     } catch (error) {
@@ -185,9 +190,10 @@ router.get("/:id", async (req, res) => {
         // find the apparel from the db
         const indyApparel = await Apparel.findById(id)
 
-
+        // grab the session user
+        const user = req.session
         // render to show.ejs and send the indyApparel
-        res.render("apparel/show.ejs", {indyApparel})
+        res.render("apparel/show.ejs", {indyApparel, user})
 
     } catch (error) {
     res.send("There was an Error")

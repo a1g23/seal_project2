@@ -2,7 +2,6 @@
 const express = require("express")
 const User = require("../models/User")
 const bcrypt = require("bcrypt")
-const { findOne } = require("../models/Apparel")
 
 // create the router
 

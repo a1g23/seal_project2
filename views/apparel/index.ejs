@@ -9,6 +9,7 @@
     <div>
         <h1>My Virtual Closet</h1>
         <%- include("../partials/loginnav.ejs") %>
+        
     </div>
     <% for (let i = 0; i < apparel.length; i++) { %>
         <a href="./mycloset/<%=apparel[i]._id%>">
