@@ -51,25 +51,24 @@ button:hover {
 .headbox {
     display: flex;
     justify-content: space-between;
-    margin: 2vh 2vh;
 }
 
-@media (min-width: 535px) {
-    .headbox {
-        display: flex;
-        justify-content: right;
-        margin: 2vh 2vh;
-        column-gap: 40vw;
-    }
-}
+
+
+
 
 .navbox {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 3px;
+    border-radius: 2vh;
 }
 
 .navitem {
-    margin-bottom: 3px;
+    margin: 3px;
 }
 
 .navuser {
@@ -82,5 +81,38 @@ button:hover {
 .headtitle {
     color: rgb(65, 119, 65);
     text-shadow: 2px 2px 10px black;
-    margin-top: 5vh;
+    margin: 5vh 2vw;
+    font-size: 1.5em;
+}
+
+@media (min-width: 535px) {
+    .headbox {
+        display: flex;
+        justify-content: right;
+        margin: 2vh 2vh;
+        column-gap: 40vw;
+    }
+    .headtitle {
+        font-size: 2.5em;
+    }
+}
+/* styling for Index page */
+
+.apparelbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3vh;
+}
+
+.apparelitem {
+    border: 2px solid black;
+    margin: 5px;
+    text-align: center;
+    border-radius: 2vh;
+}
+
+.addbutton {
+    margin: 5px 1vh;
 }

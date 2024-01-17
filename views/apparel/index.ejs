@@ -5,17 +5,23 @@
     <div>
         <%- include("../partials/loginnav.ejs") %>
     </div>
+
+    <div class="apparelbox"></div>
     <% for (let i = 0; i < apparel.length; i++) { %>
-        <a href="./mycloset/<%=apparel[i]._id%>">
-            <h1><%= apparel[i].nickname %></h1>
-        </a>
-    <% } %>
+
     
+
+        <div class="apparelitem">
+            <a href="./mycloset/<%=apparel[i]._id%>">
+                <h1><%= apparel[i].nickname %></h1>
+            </a>
+        </div>
+
+    <% } %>
+    </div>
+
     <a href="/mycloset/new">
-        <button>Add to Closet</button>
-    </a><br>
-    <a href="/user/signup">
-        <button>Create New Account</button>
+        <button class="addbutton">Add to Closet</button>
     </a>
 </body>
 </html>
