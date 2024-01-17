@@ -1,5 +1,8 @@
 /* signup and login page styling */
 
+body {
+    background-color: antiquewhite;
+}
 .accesstitle {
     color: rgb(65, 119, 65);
     text-align: center;
