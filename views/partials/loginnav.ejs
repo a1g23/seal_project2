@@ -1,5 +1,9 @@
-<nav>
-    <a href="/mycloset"><button>Home</button></a><br>
-    <a href="/user/logout"><button>Logout</button></a>
-    <h3><%=user.username%></h3>
+<nav class="headbox">
+    <h1 class="headitem headtitle">My Virtual Closet</h1>
+
+    <div class="headitem navbox">
+        <h3 class="navitem navuser"><%=user.username%></h3>
+        <a href="/mycloset"><button class="navitem">Home</button></a>
+        <a href="/user/logout"><button class="navitem">Logout</button></a>
+    </div>
 </nav>
