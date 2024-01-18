@@ -32,7 +32,9 @@ app.use(session({
 }))
 
 // register my routes
-
+app.get("/", (req, res) => {
+  res.redirect("/mycloset")
+})
 app.use("/mycloset", apparelController)
 app.use("/user", userController)
 
