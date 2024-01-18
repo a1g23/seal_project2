@@ -8,22 +8,23 @@
         </div>
         <div>
             <form action="/mycloset/<%= indyApparel._id %>?_method=PUT" method="POST">
-                <fieldset>
+                <fieldset class="userbox">
                     <legend>Edit your Apparel</legend>
                     <label>
-                        Nickname: <input type="text" name="nickname" value="<%= indyApparel.nickname %>">
+                        <input class="userinput" type="text" name="nickname" value="<%= indyApparel.nickname %>">
                     </label>
                     <label>
-                        Type: <input type="text" name="type" value="<%= indyApparel.type %>">
+                        <input class="userinput" type="text" name="type" value="<%= indyApparel.type %>">
                     </label>
                     <label>
-                        Brand: <input type="text" name="brand" value="<%= indyApparel.brand %>">
+                        <input class="userinput" type="text" name="brand" value="<%= indyApparel.brand %>">
                     </label>
                     <label>
-                        Size: <input type="text" name="size" value="<%= indyApparel.size %>">
+                        <input class="userinput" type="text" name="size" value="<%= indyApparel.size %>">
                     </label>
+                    <button>Edit my closet</button> 
                 </fieldset>
-                <button>Edit my closet</button> 
+                
             </form>
         </div>
     </main>
