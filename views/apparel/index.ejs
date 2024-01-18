@@ -5,8 +5,11 @@
     <div>
         <%- include("../partials/loginnav.ejs") %>
     </div>
-
+    
     <div class="apparelbox">
+        <a href="/mycloset/new">
+            <button class="addbutton">Add to Closet</button>
+        </a>
     <% for (let i = 0; i < apparel.length; i++) { %>
 
     
@@ -18,10 +21,9 @@
         </div>
     
     <% } %>
+
     </div>
 
-    <a href="/mycloset/new">
-        <button class="addbutton">Add to Closet</button>
-    </a>
+    
 </body>
 </html>
