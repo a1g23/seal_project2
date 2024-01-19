@@ -7,14 +7,21 @@
     </div>
 
         <div class="showbox">
-            <h1 class="showitem"><%= indyApparel.nickname %></h1>
+            
+            <h1 class="showitem showtitle"><%= indyApparel.nickname %></h1>
+            <div class="showitem">
+                <h3>Type of Apparel:</h3>
+                <h3 class="showitem-result"><%= indyApparel.type %></h3>
+            </div>
+            <div class="showitem">
+                <h3>Rocking:</h3>
+                <h3 class="showitem-result"><%= indyApparel.brand %></h3>
+            </div>
+            <div class="showitem">
+                <h3>Size:</h3>
+                <h3 class="showitem-result"><%= indyApparel.size %></h3>
+            </div>
 
-            <h1 class="showitem"><%= indyApparel.type %></h1>
-
-            <h1 class="showitem"><%= indyApparel.brand %></h1>
-
-            <h1 class="showitem"><%= indyApparel.size %></h1>
-        
             <div class="showitem shownavbox">
                 <a href="/mycloset/<%= indyApparel._id %>/edit">
                     <button class="shownavitem">Edit</button>
