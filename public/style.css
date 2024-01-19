@@ -175,6 +175,7 @@ button:hover {
     color: azure;
     border-radius: 2vh;
     box-shadow: 2px 2px 8px lightgreen;
+    max-width: 550px;
 }
 
 .showitem {
@@ -196,5 +197,13 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2vh;
 }
 
+
+@media (min-width: 580px) {
+    .showbox {
+        margin: 5vh auto;
+    }
+
+}
